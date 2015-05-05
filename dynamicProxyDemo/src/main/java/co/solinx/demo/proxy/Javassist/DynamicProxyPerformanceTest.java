@@ -24,6 +24,9 @@ import net.sf.cglib.proxy.Enhancer;
 import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
+/**
+ * javassist、CGLib、原生dynamicProxy、ASM 对比
+ */
 public class DynamicProxyPerformanceTest {
     public static void main(String[] args) throws Exception {
         CountService delegate = new CountServiceImpl();

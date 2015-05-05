@@ -45,6 +45,7 @@ public class SerializeTest {
 
         System.out.println("bytes size:" + jdkByte.length);
         System.out.println(deSerialize);
+
     }
 
     public void kryoTest(Request request) {

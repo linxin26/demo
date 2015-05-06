@@ -12,6 +12,7 @@
         <module>thriftDemo</module>
         <module>serializeDemo</module>
         <module>dynamicProxyDemo</module>
+        <module>multiThread</module>
     </modules>
 
     <properties>

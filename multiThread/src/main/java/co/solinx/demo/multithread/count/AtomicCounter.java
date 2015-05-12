@@ -5,16 +5,15 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by linx on 2015-05-12.
  */
-public class Counter {
+public class AtomicCounter {
 
-    private int count = 0;
-
+    private AtomicInteger count=new AtomicInteger();
     public  void increment() {
-        ++count;
+        count.incrementAndGet();
     }
 
 
-    public int getCount() {
+    public AtomicInteger getCount() {
         return count;
     }
 }

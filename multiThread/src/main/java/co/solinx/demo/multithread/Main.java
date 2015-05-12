@@ -7,7 +7,7 @@ import co.solinx.demo.multithread.model.DataQueue;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         final DataQueue queue = new DataQueue();
 
@@ -30,16 +30,19 @@ public class Main {
         }, "operationB");
 
         operationA.start();
+        operationA.join();
         operationB.start();
 
 
 //        for (int i = 0; i < 30; i++) {
 //            queue.push(String.valueOf(i));
 //        }
-        while (Thread.activeCount() > 2) {
-            System.out.println(Thread.activeCount());
-            Thread.yield();
-        }
+//        while (Thread.activeCount() > 2) {
+////            System.out.println(Thread.activeCount());
+//            Thread.yield();
+//        }
+
+        operationB.join();
 
         for (int i = 0; i < 30; i++) {
             System.out.println(queue.pull());

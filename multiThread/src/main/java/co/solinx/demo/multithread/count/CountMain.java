@@ -8,11 +8,16 @@ public class CountMain {
     public static void main(String[] args) throws InterruptedException {
 
         Counter counter = new Counter();
+        AtomicCounter atomicCounter=new AtomicCounter();
+
         CountThread t1 = new CountThread(counter);
         CountThread t2 = new CountThread(counter);
 
         t1.start();
         t2.start();
+//        while(Thread.activeCount()>2){
+//
+//        }
         t1.join();
         t2.join();
         System.out.println(counter.getCount());

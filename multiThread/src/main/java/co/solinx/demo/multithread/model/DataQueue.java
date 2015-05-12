@@ -18,10 +18,18 @@ public class DataQueue {
         data = new Object[capacity];
     }
 
-    public void push(Object item) {
+    public   void push(Object item) {
         System.out.println(Thread.currentThread().getName());
         this.enlarge();
-        data[index++] = item;
+        data[index] = item;
+        if(Thread.currentThread().getName().equals("operationA")){
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        index++;
     }
 
     public void enlarge() {

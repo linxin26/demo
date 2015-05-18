@@ -10,15 +10,15 @@ public class Main {
 
         Warehouse warehouse = new Warehouse(0);
 
-        Consume consume = new Consume("consume", warehouse);
-        Production production = new Production("production", warehouse);
+        Consume consume = new Consume("consume", warehouse,8);
+        Production production = new Production("production", warehouse,5);
 
-        Consume consume2 = new Consume("consume2", warehouse);
-        Production production2 = new Production("production2", warehouse);
+        Consume consume2 = new Consume("consume2", warehouse,2);
+        Production production2 = new Production("production2", warehouse,1);
 
         consume.start();
         production.start();
-        consume2.start();
+//        consume2.start();
         production2.start();
 
 

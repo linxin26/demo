@@ -1,5 +1,6 @@
-package co.solinx.demo.serialize;
+package co.solinx.demo.serialize.kryo;
 
+import co.solinx.demo.serialize.data.Request;
 import com.esotericsoftware.kryo.Kryo;
 import com.esotericsoftware.kryo.io.Input;
 import com.esotericsoftware.kryo.io.Output;

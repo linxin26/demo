@@ -1,4 +1,4 @@
-package co.solinx.demo.serialize;
+package co.solinx.demo.serialize.data;
 
 import java.io.Serializable;
 

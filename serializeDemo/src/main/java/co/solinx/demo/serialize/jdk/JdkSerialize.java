@@ -1,4 +1,4 @@
-package co.solinx.demo.serialize;
+package co.solinx.demo.serialize.jdk;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

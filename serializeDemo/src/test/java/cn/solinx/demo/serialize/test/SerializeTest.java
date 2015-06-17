@@ -1,4 +1,9 @@
-package co.solinx.demo.serialize;
+package cn.solinx.demo.serialize.test;
+
+import co.solinx.demo.serialize.data.Request;
+import co.solinx.demo.serialize.data.Response;
+import co.solinx.demo.serialize.jdk.JdkSerialize;
+import co.solinx.demo.serialize.kryo.KryoSerialize;
 
 import java.io.IOException;
 import java.util.Random;

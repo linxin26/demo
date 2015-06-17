@@ -1,0 +1,10 @@
+package protocolBuffer;
+
+option java_package = "co.solinx.demo.serialize.protocolBuffer";
+
+option java_outer_classname = "ResponseProto";
+
+message Response {
+    required int32 sn = 1;
+    required string result = 2;
+}

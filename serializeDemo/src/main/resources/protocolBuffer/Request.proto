@@ -1,0 +1,14 @@
+import "Response.proto";
+package protocolBuffer;
+
+option java_package = "co.solinx.demo.serialize.protocolBuffer";
+
+option java_outer_classname = "RequestProto";
+
+message Request {
+    required int32 id = 1;
+    required string data = 2;
+    optional Response response = 3;
+    required string version = 4;
+
+}

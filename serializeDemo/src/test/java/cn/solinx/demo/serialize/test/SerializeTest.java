@@ -2,6 +2,8 @@ package cn.solinx.demo.serialize.test;
 
 import co.solinx.demo.serialize.data.Request;
 import co.solinx.demo.serialize.data.Response;
+import co.solinx.demo.serialize.fourest.ForestSerialize;
+import co.solinx.demo.serialize.fourest.StringUtil;
 import co.solinx.demo.serialize.jdk.JdkSerialize;
 import co.solinx.demo.serialize.kryo.KryoSerialize;
 import co.solinx.demo.serialize.protocolBuffer.BufferSerialize;
@@ -18,12 +20,12 @@ public class SerializeTest {
 
         Random random = new Random();
         Request request = new Request();
-        request.setId(random.nextInt());
-        request.setData("data body");
-        request.setVersion("V2.1");
+        request.setId(122);
+        request.setData("data");
+        request.setVersion("version");
         Response response = new Response();
         response.setSn(request.getId());
-        response.setResult("response result");
+        response.setResult("result");
         request.setResponse(response);
 
         SerializeTest serialize = new SerializeTest();
@@ -31,6 +33,7 @@ public class SerializeTest {
             serialize.jdkSerialize(request);
             serialize.kryoTest(request);
             serialize.protocolTest();
+            serialize.forestSerialize();
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -54,6 +57,7 @@ public class SerializeTest {
         System.out.println("jdk serialize:" + (endTime - startTime) + "ms");
 
         System.out.println("bytes size:" + jdkByte.length);
+        System.out.println(StringUtil.bytesToString(jdkByte));
         System.out.println(deSerialize);
 
     }
@@ -70,6 +74,8 @@ public class SerializeTest {
         long endTime = System.currentTimeMillis();
         System.out.println("kryo serialize:" + (endTime - startTime) + "ms");
         System.out.println("bytes size:" + kryoByte.length);
+        System.out.println(StringUtil.bytesToString(kryoByte));
+        System.out.println(new String(kryoByte));
         System.out.println(kryObj);
     }
 
@@ -100,8 +106,34 @@ public class SerializeTest {
         long endTime = System.currentTimeMillis();
         System.out.println("protocol serialize:" + (endTime - startTime) + "ms");
         System.out.println("bytes size:" + datas.length);
+        System.out.println(StringUtil.bytesToString(datas));
         System.out.println(temp.toString());
 
+    }
+
+    public void forestSerialize(){
+        Request request=new Request();
+        request.setId(99);
+        request.setVersion("version");
+        request.setData("data");
+        request.setResponse(null);
+        ForestSerialize forest=new ForestSerialize();
+        long startTime = System.currentTimeMillis();
+        byte[] dataByte=null;
+        Request temp = null;
+        for (int i = 0; i < 100000; i++) {
+            dataByte = forest.serialize(request);
+            temp = (Request) forest.deSerialize(dataByte);
+        }
+        long endTime = System.currentTimeMillis();
+        System.out.println("forest serialize:" + (endTime - startTime) + "ms");
+        System.out.println("bytes size:" + dataByte.length);
+        System.out.println(StringUtil.bytesToString(dataByte));
+        System.out.println(temp.toString());
+
+//        byte[] dataByte= forest.serialize(request);
+//        Request temp= (Request) forest.deSerialize(dataByte);
+//        System.out.println(temp);
     }
 
 }

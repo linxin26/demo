@@ -113,10 +113,11 @@ public class SerializeTest {
 
     public void forestSerialize(){
         Request request=new Request();
-        request.setId(99);
+        request.setId(9999);
         request.setVersion("version");
         request.setData("data");
         request.setResponse(null);
+        request.setLongv(99999);
         ForestSerialize forest=new ForestSerialize();
         long startTime = System.currentTimeMillis();
         byte[] dataByte=null;

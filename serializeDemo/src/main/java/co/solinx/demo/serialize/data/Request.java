@@ -6,11 +6,15 @@ public class Request implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6776150053843966262L;
+//	private static long serialVersionUID = 6776150053843966262L;
 	int id;
+	Integer sn;
+	long longv;
+	Long longL;
 	Object data;
 	String version;
 	Response response;
+	boolean bool;
 
 	public int getId() {
 		return id;
@@ -37,7 +41,7 @@ public class Request implements Serializable {
 	}
 
 	public static long getSerialversionuid() {
-		return serialVersionUID;
+		return 8888;
 	}
 
 	public Response getResponse() {
@@ -48,10 +52,50 @@ public class Request implements Serializable {
 		this.response = response;
 	}
 
-	@Override
-	public String toString() {
-		return "Request [id=" + id + ", data=" + data + ", version=" + version
-				+ ", response=" + response + "]";
+	public Integer getSn() {
+		return sn;
 	}
 
+	public void setSn(Integer sn) {
+		this.sn = sn;
+	}
+
+	public long getLongv() {
+		return longv;
+	}
+
+	public void setLongv(long longv) {
+		this.longv = longv;
+	}
+
+
+	public Long getLongL() {
+		return longL;
+	}
+
+	public void setLongL(Long longL) {
+		this.longL = longL;
+	}
+
+	public boolean isBool() {
+		return bool;
+	}
+
+	public void setBool(boolean bool) {
+		this.bool = bool;
+	}
+
+	@Override
+	public String toString() {
+		return "Request{" +
+				"id=" + id +
+				", sn=" + sn +
+				", longv=" + longv +
+				", longL=" + longL +
+				", data=" + data +
+				", version='" + version + '\'' +
+				", response=" + response +
+				", bool=" + bool +
+				'}';
+	}
 }

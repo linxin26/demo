@@ -12,6 +12,7 @@ public class BufferSerialize {
         return request.build().toByteArray();
     }
     public RequestProto.Request  deSerialize(byte[] bytes) throws InvalidProtocolBufferException {
+
         return RequestProto.Request.parseFrom(bytes);
     }
 

@@ -7,8 +7,12 @@ option java_outer_classname = "RequestProto";
 
 message Request {
     required int32 id = 1;
+    required int64 sn= 6;
     required string data = 2;
     optional Response response = 3;
     required string version = 4;
+    required bool boolean=5;
+    required int64 longv=7;
+    required int64 longL=8;
 
 }

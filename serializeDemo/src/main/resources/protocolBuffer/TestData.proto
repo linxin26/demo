@@ -1,0 +1,10 @@
+package protocolBuffer;
+
+option java_package = "co.solinx.demo.serialize.protocolBuffer";
+
+option java_outer_classname = "TestDataProto";
+
+message TestData {
+    required int32 sn = 1;
+
+}

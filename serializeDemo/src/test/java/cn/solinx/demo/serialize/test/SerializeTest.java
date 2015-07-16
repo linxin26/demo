@@ -2,6 +2,7 @@ package cn.solinx.demo.serialize.test;
 
 import co.solinx.demo.serialize.data.Request;
 import co.solinx.demo.serialize.data.Response;
+import co.solinx.demo.serialize.data.TestData;
 import co.solinx.demo.serialize.fourest.ForestSerialize;
 import co.solinx.demo.serialize.fourest.StringUtil;
 import co.solinx.demo.serialize.jdk.JdkSerialize;
@@ -14,6 +15,10 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import java.io.IOException;
 import java.util.Random;
 
+/**
+ * 简单分析jdk序列化、Kryo、protoBuf 三种序列化
+ * http://kangsg219.iteye.com/blog/904762
+ */
 public class SerializeTest {
 
     public static void main(String[] args) {
@@ -27,13 +32,21 @@ public class SerializeTest {
         response.setSn(request.getId());
         response.setResult("result");
         request.setResponse(response);
+        request.setBool(false);
+        request.setLongL(170l);
+        request.setLongv(160);
+        request.setSn(150);
+
+        TestData testData=new TestData();
 
         SerializeTest serialize = new SerializeTest();
         try {
             serialize.jdkSerialize(request);
+            System.out.println("---------------------------------------------------------------");
             serialize.kryoTest(request);
+            System.out.println("---------------------------------------------------------------");
             serialize.protocolTest();
-            serialize.forestSerialize();
+//            serialize.forestSerialize();
 
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -75,7 +88,7 @@ public class SerializeTest {
         System.out.println("kryo serialize:" + (endTime - startTime) + "ms");
         System.out.println("bytes size:" + kryoByte.length);
         System.out.println(StringUtil.bytesToString(kryoByte));
-        System.out.println(new String(kryoByte));
+//        System.out.println(new String(kryoByte));
         System.out.println(kryObj);
     }
 
@@ -88,7 +101,11 @@ public class SerializeTest {
         response.setResult("result");
         response.setSn(request.getId());
         request.setResponse(response);
-        request.setResponse(response);
+         request.setBoolean(false);
+        request.setSn(150);
+        request.setLongv(160);
+        request.setLongL(170);
+
 
         byte[] dataBytes=request.build().toByteArray();
         byte[] datas = new byte[0];

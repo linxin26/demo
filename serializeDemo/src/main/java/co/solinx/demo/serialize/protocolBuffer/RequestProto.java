@@ -22,6 +22,15 @@ public final class RequestProto {
     int getId();
 
     /**
+     * <code>required int64 sn = 6;</code>
+     */
+    boolean hasSn();
+    /**
+     * <code>required int64 sn = 6;</code>
+     */
+    long getSn();
+
+    /**
      * <code>required string data = 2;</code>
      */
     boolean hasData();
@@ -61,6 +70,33 @@ public final class RequestProto {
      */
     com.google.protobuf.ByteString
         getVersionBytes();
+
+    /**
+     * <code>required bool boolean = 5;</code>
+     */
+    boolean hasBoolean();
+    /**
+     * <code>required bool boolean = 5;</code>
+     */
+    boolean getBoolean();
+
+    /**
+     * <code>required int64 longv = 7;</code>
+     */
+    boolean hasLongv();
+    /**
+     * <code>required int64 longv = 7;</code>
+     */
+    long getLongv();
+
+    /**
+     * <code>required int64 longL = 8;</code>
+     */
+    boolean hasLongL();
+    /**
+     * <code>required int64 longL = 8;</code>
+     */
+    long getLongL();
   }
   /**
    * Protobuf type {@code protocolBuffer.Request}
@@ -121,13 +157,13 @@ public final class RequestProto {
             }
             case 18: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000002;
+              bitField0_ |= 0x00000004;
               data_ = bs;
               break;
             }
             case 26: {
               co.solinx.demo.serialize.protocolBuffer.ResponseProto.Response.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+              if (((bitField0_ & 0x00000008) == 0x00000008)) {
                 subBuilder = response_.toBuilder();
               }
               response_ = input.readMessage(co.solinx.demo.serialize.protocolBuffer.ResponseProto.Response.PARSER, extensionRegistry);
@@ -135,13 +171,33 @@ public final class RequestProto {
                 subBuilder.mergeFrom(response_);
                 response_ = subBuilder.buildPartial();
               }
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000008;
               break;
             }
             case 34: {
               com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000008;
+              bitField0_ |= 0x00000010;
               version_ = bs;
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000020;
+              boolean_ = input.readBool();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000002;
+              sn_ = input.readInt64();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              longv_ = input.readInt64();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              longL_ = input.readInt64();
               break;
             }
           }
@@ -199,13 +255,28 @@ public final class RequestProto {
       return id_;
     }
 
+    public static final int SN_FIELD_NUMBER = 6;
+    private long sn_;
+    /**
+     * <code>required int64 sn = 6;</code>
+     */
+    public boolean hasSn() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 sn = 6;</code>
+     */
+    public long getSn() {
+      return sn_;
+    }
+
     public static final int DATA_FIELD_NUMBER = 2;
     private java.lang.Object data_;
     /**
      * <code>required string data = 2;</code>
      */
     public boolean hasData() {
-      return ((bitField0_ & 0x00000002) == 0x00000002);
+      return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <code>required string data = 2;</code>
@@ -247,7 +318,7 @@ public final class RequestProto {
      * <code>optional .protocolBuffer.Response response = 3;</code>
      */
     public boolean hasResponse() {
-      return ((bitField0_ & 0x00000004) == 0x00000004);
+      return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
      * <code>optional .protocolBuffer.Response response = 3;</code>
@@ -268,7 +339,7 @@ public final class RequestProto {
      * <code>required string version = 4;</code>
      */
     public boolean hasVersion() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+      return ((bitField0_ & 0x00000010) == 0x00000010);
     }
     /**
      * <code>required string version = 4;</code>
@@ -304,11 +375,60 @@ public final class RequestProto {
       }
     }
 
+    public static final int BOOLEAN_FIELD_NUMBER = 5;
+    private boolean boolean_;
+    /**
+     * <code>required bool boolean = 5;</code>
+     */
+    public boolean hasBoolean() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required bool boolean = 5;</code>
+     */
+    public boolean getBoolean() {
+      return boolean_;
+    }
+
+    public static final int LONGV_FIELD_NUMBER = 7;
+    private long longv_;
+    /**
+     * <code>required int64 longv = 7;</code>
+     */
+    public boolean hasLongv() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>required int64 longv = 7;</code>
+     */
+    public long getLongv() {
+      return longv_;
+    }
+
+    public static final int LONGL_FIELD_NUMBER = 8;
+    private long longL_;
+    /**
+     * <code>required int64 longL = 8;</code>
+     */
+    public boolean hasLongL() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>required int64 longL = 8;</code>
+     */
+    public long getLongL() {
+      return longL_;
+    }
+
     private void initFields() {
       id_ = 0;
+      sn_ = 0L;
       data_ = "";
       response_ = co.solinx.demo.serialize.protocolBuffer.ResponseProto.Response.getDefaultInstance();
       version_ = "";
+      boolean_ = false;
+      longv_ = 0L;
+      longL_ = 0L;
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -320,11 +440,27 @@ public final class RequestProto {
         memoizedIsInitialized = 0;
         return false;
       }
+      if (!hasSn()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       if (!hasData()) {
         memoizedIsInitialized = 0;
         return false;
       }
       if (!hasVersion()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasBoolean()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLongv()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasLongL()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -344,14 +480,26 @@ public final class RequestProto {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(2, getDataBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeMessage(3, response_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeBytes(4, getVersionBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeBool(5, boolean_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt64(6, sn_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt64(7, longv_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt64(8, longL_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -366,17 +514,33 @@ public final class RequestProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, id_);
       }
-      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, getDataBytes());
       }
-      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, response_);
       }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, getVersionBytes());
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, boolean_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, sn_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(7, longv_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(8, longL_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -498,16 +662,24 @@ public final class RequestProto {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        data_ = "";
+        sn_ = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
+        data_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (responseBuilder_ == null) {
           response_ = co.solinx.demo.serialize.protocolBuffer.ResponseProto.Response.getDefaultInstance();
         } else {
           responseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
-        version_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
+        version_ = "";
+        bitField0_ = (bitField0_ & ~0x00000010);
+        boolean_ = false;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        longv_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        longL_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -543,19 +715,35 @@ public final class RequestProto {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        result.data_ = data_;
+        result.sn_ = sn_;
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
+        }
+        result.data_ = data_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
         }
         if (responseBuilder_ == null) {
           result.response_ = response_;
         } else {
           result.response_ = responseBuilder_.build();
         }
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
         }
         result.version_ = version_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
+        result.boolean_ = boolean_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.longv_ = longv_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.longL_ = longL_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -575,8 +763,11 @@ public final class RequestProto {
         if (other.hasId()) {
           setId(other.getId());
         }
+        if (other.hasSn()) {
+          setSn(other.getSn());
+        }
         if (other.hasData()) {
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
           data_ = other.data_;
           onChanged();
         }
@@ -584,9 +775,18 @@ public final class RequestProto {
           mergeResponse(other.getResponse());
         }
         if (other.hasVersion()) {
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
           version_ = other.version_;
           onChanged();
+        }
+        if (other.hasBoolean()) {
+          setBoolean(other.getBoolean());
+        }
+        if (other.hasLongv()) {
+          setLongv(other.getLongv());
+        }
+        if (other.hasLongL()) {
+          setLongL(other.getLongL());
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -597,11 +797,27 @@ public final class RequestProto {
           
           return false;
         }
+        if (!hasSn()) {
+          
+          return false;
+        }
         if (!hasData()) {
           
           return false;
         }
         if (!hasVersion()) {
+          
+          return false;
+        }
+        if (!hasBoolean()) {
+          
+          return false;
+        }
+        if (!hasLongv()) {
+          
+          return false;
+        }
+        if (!hasLongL()) {
           
           return false;
         }
@@ -665,12 +881,44 @@ public final class RequestProto {
         return this;
       }
 
+      private long sn_ ;
+      /**
+       * <code>required int64 sn = 6;</code>
+       */
+      public boolean hasSn() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 sn = 6;</code>
+       */
+      public long getSn() {
+        return sn_;
+      }
+      /**
+       * <code>required int64 sn = 6;</code>
+       */
+      public Builder setSn(long value) {
+        bitField0_ |= 0x00000002;
+        sn_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 sn = 6;</code>
+       */
+      public Builder clearSn() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        sn_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private java.lang.Object data_ = "";
       /**
        * <code>required string data = 2;</code>
        */
       public boolean hasData() {
-        return ((bitField0_ & 0x00000002) == 0x00000002);
+        return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <code>required string data = 2;</code>
@@ -713,7 +961,7 @@ public final class RequestProto {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         data_ = value;
         onChanged();
         return this;
@@ -722,7 +970,7 @@ public final class RequestProto {
        * <code>required string data = 2;</code>
        */
       public Builder clearData() {
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -735,7 +983,7 @@ public final class RequestProto {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000002;
+  bitField0_ |= 0x00000004;
         data_ = value;
         onChanged();
         return this;
@@ -748,7 +996,7 @@ public final class RequestProto {
        * <code>optional .protocolBuffer.Response response = 3;</code>
        */
       public boolean hasResponse() {
-        return ((bitField0_ & 0x00000004) == 0x00000004);
+        return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
        * <code>optional .protocolBuffer.Response response = 3;</code>
@@ -773,7 +1021,7 @@ public final class RequestProto {
         } else {
           responseBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -787,7 +1035,7 @@ public final class RequestProto {
         } else {
           responseBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -795,7 +1043,7 @@ public final class RequestProto {
        */
       public Builder mergeResponse(co.solinx.demo.serialize.protocolBuffer.ResponseProto.Response value) {
         if (responseBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+          if (((bitField0_ & 0x00000008) == 0x00000008) &&
               response_ != co.solinx.demo.serialize.protocolBuffer.ResponseProto.Response.getDefaultInstance()) {
             response_ =
               co.solinx.demo.serialize.protocolBuffer.ResponseProto.Response.newBuilder(response_).mergeFrom(value).buildPartial();
@@ -806,7 +1054,7 @@ public final class RequestProto {
         } else {
           responseBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -819,14 +1067,14 @@ public final class RequestProto {
         } else {
           responseBuilder_.clear();
         }
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
       /**
        * <code>optional .protocolBuffer.Response response = 3;</code>
        */
       public co.solinx.demo.serialize.protocolBuffer.ResponseProto.Response.Builder getResponseBuilder() {
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
         onChanged();
         return getResponseFieldBuilder().getBuilder();
       }
@@ -862,7 +1110,7 @@ public final class RequestProto {
        * <code>required string version = 4;</code>
        */
       public boolean hasVersion() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
+        return ((bitField0_ & 0x00000010) == 0x00000010);
       }
       /**
        * <code>required string version = 4;</code>
@@ -905,7 +1153,7 @@ public final class RequestProto {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         version_ = value;
         onChanged();
         return this;
@@ -914,7 +1162,7 @@ public final class RequestProto {
        * <code>required string version = 4;</code>
        */
       public Builder clearVersion() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         version_ = getDefaultInstance().getVersion();
         onChanged();
         return this;
@@ -927,8 +1175,104 @@ public final class RequestProto {
         if (value == null) {
     throw new NullPointerException();
   }
-  bitField0_ |= 0x00000008;
+  bitField0_ |= 0x00000010;
         version_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean boolean_ ;
+      /**
+       * <code>required bool boolean = 5;</code>
+       */
+      public boolean hasBoolean() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required bool boolean = 5;</code>
+       */
+      public boolean getBoolean() {
+        return boolean_;
+      }
+      /**
+       * <code>required bool boolean = 5;</code>
+       */
+      public Builder setBoolean(boolean value) {
+        bitField0_ |= 0x00000020;
+        boolean_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required bool boolean = 5;</code>
+       */
+      public Builder clearBoolean() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        boolean_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long longv_ ;
+      /**
+       * <code>required int64 longv = 7;</code>
+       */
+      public boolean hasLongv() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required int64 longv = 7;</code>
+       */
+      public long getLongv() {
+        return longv_;
+      }
+      /**
+       * <code>required int64 longv = 7;</code>
+       */
+      public Builder setLongv(long value) {
+        bitField0_ |= 0x00000040;
+        longv_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 longv = 7;</code>
+       */
+      public Builder clearLongv() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        longv_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long longL_ ;
+      /**
+       * <code>required int64 longL = 8;</code>
+       */
+      public boolean hasLongL() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>required int64 longL = 8;</code>
+       */
+      public long getLongL() {
+        return longL_;
+      }
+      /**
+       * <code>required int64 longL = 8;</code>
+       */
+      public Builder setLongL(long value) {
+        bitField0_ |= 0x00000080;
+        longL_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 longL = 8;</code>
+       */
+      public Builder clearLongL() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        longL_ = 0L;
         onChanged();
         return this;
       }
@@ -959,11 +1303,12 @@ public final class RequestProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\rRequest.proto\022\016protocolBuffer\032\016Respons" +
-      "e.proto\"`\n\007Request\022\n\n\002id\030\001 \002(\005\022\014\n\004data\030\002" +
-      " \002(\t\022*\n\010response\030\003 \001(\0132\030.protocolBuffer." +
-      "Response\022\017\n\007version\030\004 \002(\tB7\n\'co.solinx.d" +
-      "emo.serialize.protocolBufferB\014RequestPro" +
-      "to"
+      "e.proto\"\233\001\n\007Request\022\n\n\002id\030\001 \002(\005\022\n\n\002sn\030\006 " +
+      "\002(\003\022\014\n\004data\030\002 \002(\t\022*\n\010response\030\003 \001(\0132\030.pr" +
+      "otocolBuffer.Response\022\017\n\007version\030\004 \002(\t\022\017" +
+      "\n\007boolean\030\005 \002(\010\022\r\n\005longv\030\007 \002(\003\022\r\n\005longL\030" +
+      "\010 \002(\003B7\n\'co.solinx.demo.serialize.protoc" +
+      "olBufferB\014RequestProto"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -983,7 +1328,7 @@ public final class RequestProto {
     internal_static_protocolBuffer_Request_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_protocolBuffer_Request_descriptor,
-        new java.lang.String[] { "Id", "Data", "Response", "Version", });
+        new java.lang.String[] { "Id", "Sn", "Data", "Response", "Version", "Boolean", "Longv", "LongL", });
     co.solinx.demo.serialize.protocolBuffer.ResponseProto.getDescriptor();
   }
 

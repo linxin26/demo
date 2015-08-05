@@ -13,11 +13,16 @@
         <module>serializeDemo</module>
         <module>dynamicProxyDemo</module>
         <module>multiThread</module>
+        <module>lambda</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>1.7</maven.compiler.source>
-        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.edcoding>UTF-8</maven.compiler.edcoding>
+        <!-- 文件拷贝时的编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
 

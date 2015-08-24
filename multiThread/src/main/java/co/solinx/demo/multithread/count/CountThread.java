@@ -13,7 +13,7 @@ public class CountThread extends Thread {
 
     @Override
     public void run() {
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 5000; i++) {
             counter.increment();
         }
     }

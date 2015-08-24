@@ -20,7 +20,7 @@ public class CountMain {
 //        }
         t1.join();
         t2.join();
-        System.out.println(counter.getCount());
+        System.out.println("计数器："+counter.getCount());
     }
 
 }

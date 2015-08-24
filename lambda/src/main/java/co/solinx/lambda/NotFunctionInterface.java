@@ -6,7 +6,7 @@ package co.solinx.lambda;
 @FunctionalInterface
 public interface NotFunctionInterface {
 
-    void test(int a);
+    int test(int a);
 
     default void print(){
         System.out.println("default method");

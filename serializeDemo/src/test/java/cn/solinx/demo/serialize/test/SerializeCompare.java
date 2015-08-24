@@ -50,7 +50,7 @@ public class SerializeCompare {
 
         System.out.println("bytes size:" + jdkByte.length);
         System.out.println(StringUtil.bytesToString(jdkByte));
-        System.out.println(deSerialize);
+//        System.out.println(deSerialize);
 
     }
 
@@ -67,19 +67,16 @@ public class SerializeCompare {
         System.out.println("kryo serialize:" + (endTime - startTime) + "ms");
         System.out.println("bytes size:" + kryoByte.length);
         System.out.println(StringUtil.bytesToString(kryoByte));
-//        System.out.println(new String(kryoByte));
-        System.out.println(kryObj);
+////        System.out.println(new String(kryoByte));
+//        System.out.println(kryObj);
     }
 
     public void protocolTest(){
-//        RequestProto.Request.Builder request=RequestProto.Request.newBuilder();
-//        ResponseProto.Response.Builder response=ResponseProto.Response.newBuilder();
 
         TestDataProto.TestData.Builder testData=TestDataProto.TestData.newBuilder();
-        testData.setSn(8);
+        testData.setSn(10);
 
-        byte[] datas = new byte[0];
-        BufferSerialize buffer=new BufferSerialize();
+        byte[] datas=null;
         TestDataProto.TestData temp = null;
         long startTime = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++) {
@@ -94,7 +91,7 @@ public class SerializeCompare {
         System.out.println("protocol serialize:" + (endTime - startTime) + "ms");
         System.out.println("bytes size:" + datas.length);
         System.out.println(StringUtil.bytesToString(datas));
-        System.out.println(temp.toString());
+//        System.out.println(temp);
 
     }
 

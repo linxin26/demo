@@ -19,7 +19,7 @@ public class Generate  extends Thread{
     public void run() {
         try {
             for (int i = 0; i < num; i++) {
-                warehouse.production();
+                warehouse.stock();
             }
 
         } catch (InterruptedException e) {

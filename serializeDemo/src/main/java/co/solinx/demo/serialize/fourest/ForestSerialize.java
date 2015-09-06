@@ -226,6 +226,7 @@ public class ForestSerialize {
                             field.setAccessible(true);
                             String typeName = field.getType().getSimpleName();
                             if (typeName.equals(DataTypeConstant.INT_N) || typeName.equals(DataTypeConstant.INTEGER_N)) {
+                                System.out.println(this.bytesToInt(dataO));
                                 field.set(cObject,this.bytesToInt(dataO));
                             }
                         }

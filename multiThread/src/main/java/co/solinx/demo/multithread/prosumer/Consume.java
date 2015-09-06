@@ -17,7 +17,7 @@ public class Consume extends Thread {
     @Override
     public void run() {
         for (int i = 0; i < num; i++) {
-            warehouse.consume();
+            warehouse.shipment();
         }
 
     }

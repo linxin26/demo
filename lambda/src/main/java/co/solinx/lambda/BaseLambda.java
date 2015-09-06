@@ -3,6 +3,7 @@ package co.solinx.lambda;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BinaryOperator;
 import java.util.stream.Stream;
 
 /**
@@ -28,13 +29,29 @@ public class BaseLambda {
 
         NotFunctionInterface notFunctionInterface = (a) -> {
             System.out.println(a);
+        NotFunctionInterface notFunctionInterface=(a)->{
+             a++;
+            a=a+10;
+            return a;
         };
 
-        notFunctionInterface.test(112);
+        System.out.println(notFunctionInterface.test(112));
         notFunctionInterface.print();
         NotFunctionInterface.staticMethod();
 
         ArrayList<String> arry = new ArrayList();
+        BinaryOperator<Long> addLong=(x,y)->{
+            Long l=x+y;
+            return l;
+        };
+
+        BinaryOperator<Integer> addOperator = (x, y) -> x+y;
+        System.out.println(addOperator.apply(3,4));
+
+        System.out.println(addLong.apply(1l,3l));
+
+        System.out.println("");
+        ArrayList<String> arry=new ArrayList();
         arry.add("a");
         arry.add("b");
         arry.add("1");

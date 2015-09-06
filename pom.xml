@@ -16,6 +16,7 @@
         <module>lambda</module>
         <module>zookeeperDemo</module>
         <module>leetCode</module>
+        <module>curatorDemo</module>
     </modules>
 
     <properties>

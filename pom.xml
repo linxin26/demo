@@ -14,6 +14,8 @@
         <module>dynamicProxyDemo</module>
         <module>multiThread</module>
         <module>lambda</module>
+        <module>zookeeperDemo</module>
+        <module>leetCode</module>
     </modules>
 
     <properties>

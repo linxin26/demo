@@ -1,9 +1,7 @@
 package co.solinx.demo.serialize.fourest;
 
 import co.solinx.demo.serialize.data.Request;
-import com.sun.prism.PixelFormat;
 
-import javax.xml.crypto.Data;
 import java.lang.reflect.Field;
 
 /**

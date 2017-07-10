@@ -159,7 +159,6 @@ public class ForestSerialize {
             }
 
         }
-//        System.out.println(value);
         return value;
     }
 
